@@ -1,0 +1,1 @@
+import {Navigate,useLocation} from "react-router-dom";import{useAdminAuth}from"../../context/AdminAuthContext";export default function AdminProtectedRoute({children}){const{admin}=useAdminAuth(),loc=useLocation();return admin&&localStorage.getItem("adminToken")?children:<Navigate to="/admin/login" replace state={{from:loc}}/>}
